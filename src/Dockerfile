@@ -1,8 +1,8 @@
-FROM cgr.dev/chainguard/node
+FROM node:18.12.1
 WORKDIR /app
-COPY --chown=node:node package*.json ./
+COPY package*.json ./
 RUN npm install
-COPY --chown=node:node . . 
-USER node
+COPY . .
 EXPOSE 8080
 CMD ["node", "server.js"]
+
